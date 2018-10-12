@@ -26,6 +26,9 @@ class cached_property(object):
         return attr
 
 
+NOUN_TEMPLATES = ('-is-nafnorð-', '-is-sérnafn-', '-is-örnefni-', '-is-karlmannsnafn-', '-is-kvenmannsnafn-')
+
+
 class Entry:
   def __init__(self, page, ns):
     self.page = page
@@ -43,7 +46,7 @@ class Entry:
   def parsed(self):
     if self.body:
       return wtp.parse(self.body)
-  
+
   @cached_property
   def declension(self):
     parsed = self.parsed
@@ -63,11 +66,26 @@ class Entry:
 
       if t is not None:
         return [a.value for a in t.arguments]
-  
+
+  @cached_property
+  def part_of_speech(self):
+    templates = self.parsed.templates
+
+    for index, template in enumerate(templates):
+      if template.name in NOUN_TEMPLATES:
+        return templates[index + 1].name.replace('.', '')
+
+  @cached_property
+  def is_icelandic(self):
+    if self.parsed.templates:
+      return self.parsed.templates[0].name == '-is-'
+
+    return False
+
   def __repr__(self):
     return '<Entry(title=%s)>' % (self.title)
-    
-  
+
+
 class Database:
   def __init__(self, xml_file):
     ns = {'ns': 'http://www.mediawiki.org/xml/export-0.10/'}
@@ -96,27 +114,39 @@ class Database:
 
 
 class Declensions:
-  def get_declensions(self, entry, templ):
-    declension_args = entry.declension_arguments
-    declensions = []
+  def __init__(self, database):
+    self.db = database
 
-    for a in templ.parsed.templates[0].arguments:
-      val = a.value.strip()
+  def get_declensions(self, word):
+    try:
+      entry = self.db.get_by_title(word)
+      templ = self.db.get_declension_template(entry.declension)
 
-      if val.startswith('[['):
-        declensions.append(val)
+      declension_args = entry.declension_arguments
+      declensions = []
 
-    results = []
-    tpl = TemplateDict()
-    ctx = ExpansionContext(templates=tpl)
+      for a in templ.parsed.templates[0].arguments:
+        val = a.value.strip()
 
-    for decl in declensions:
-      args = {str(i + 1):val for i, val in enumerate(entry.declension_arguments)}
-      expanded = ctx.expand(decl, args)
-    
-      results.append(str(expanded).replace('[[', '').replace(']]', '').strip())
+        if '{{{' in val:
+          declensions.append(val)
 
-    return results
+      results = []
+      tpl = TemplateDict()
+      ctx = ExpansionContext(templates=tpl)
+
+      for decl in declensions:
+        args = {str(i + 1):val for i, val in enumerate(entry.declension_arguments)}
+        expanded = ctx.expand(decl, args)
+
+        cleaned = str(expanded).replace('[[', '').replace(']]', '').strip()
+
+        if cleaned != '':
+          results.append(cleaned)
+
+      return results
+    except Exception as exc:
+      raise Exception('Failed to get declensions for {}'.format(word))
 
   def print_declensions(self, declensions):
     col_count = len(declensions) // 4
@@ -126,14 +156,14 @@ class Declensions:
       print(row_format.format(*g))
 
 
-db = Database('articles.xml')
+# db = Database('articles.xml')
 
-def pp(word):
-  try:
-    entry = db.get_by_title(word)
-    templ = db.get_declension_template(entry.declension)
+# def pp(word):
+#   try:
+#     entry = db.get_by_title(word)
+#     templ = db.get_declension_template(entry.declension)
 
-    d = Declensions()
-    d.print_declensions(d.get_declensions(entry, templ))
-  except KeyError:
-    print('{} not found'.format(word))
+#     d = Declensions()
+#     d.print_declensions(d.get_declensions(entry, templ))
+#   except KeyError:
+#     print('{} not found'.format(word))

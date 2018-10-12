@@ -8,8 +8,11 @@ click = "*"
 wikiexpand = "*"
 wikitextparser = "*"
 setuptools = ">=36.2.1"
+peewee = "*"
 
 [dev-packages]
+ipython = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"
