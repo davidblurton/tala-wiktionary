@@ -1,6 +1,6 @@
 from wiktionary import Database, Declensions
 
-word = 'Jesús'
+word = 'þessi'
 
 db = Database('articles.xml')
 

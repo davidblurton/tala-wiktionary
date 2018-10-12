@@ -9,6 +9,9 @@ wikiexpand = "*"
 wikitextparser = "*"
 setuptools = ">=36.2.1"
 peewee = "*"
+graphene = ">=2.0"
+flask = "*"
+flask-graphql = "*"
 
 [dev-packages]
 ipython = "*"

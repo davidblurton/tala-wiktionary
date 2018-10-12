@@ -33,8 +33,13 @@ MODELS = [
   Form,
 ]
 
-def find(word):
-  return list(Lemma.select().join(Form).where(Form.name == word))
+
+def find_lemmas(word):
+  return Lemma.select().join(Form).where(Form.name == word)
+
+def find_forms_for_lemma(word):
+  return Form.select().join(Lemma).where(Lemma.name == word)
 
 def find_forms(word):
-  return list(Form.select().join(Lemma).where(Lemma.name == word))
+  return Form.select().where(Form.name == word)
+
