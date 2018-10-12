@@ -1,4 +1,0 @@
-setuptools>=36.2.1
-wikitextparser
-wikiexpand
-click
