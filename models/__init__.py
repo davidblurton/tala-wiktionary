@@ -1,16 +1,6 @@
 from peewee import *
+from database import BaseModel
 
-from playhouse.sqlite_ext import SqliteExtDatabase
-
-db = SqliteExtDatabase('words.db', pragmas=(
-    ('cache_size', -1024 * 64),  # 64MB page-cache.
-    ('journal_mode', 'wal'),  # Use WAL-mode (you should always use this!).
-    ('foreign_keys', 1)))  # Enforce foreign-key constraints.
-
-
-class BaseModel(Model):
-  class Meta:
-    database = db
 
 class Lemma(BaseModel):
   name = TextField(index=True)
@@ -33,14 +23,3 @@ MODELS = [
   Lemma,
   Form,
 ]
-
-
-def find_lemmas(word):
-  return Lemma.select().join(Form).where(Form.name == word)
-
-def find_forms_for_lemma(word):
-  return Form.select().join(Lemma).where(Lemma.name == word)
-
-def find_forms(word):
-  return Form.select().where(Form.name == word)
-

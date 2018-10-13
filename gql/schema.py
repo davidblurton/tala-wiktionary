@@ -19,7 +19,7 @@ class Query(graphene.ObjectType):
         return Lemma.get(name=name)
 
     def resolve_forms(self, info, form):
-        return find_forms(form)
+        return Form.select().where(Form.name == form)
 
     def resolve_search(self, info, search):
         return Form.select().where(Form.name.startswith(search)).limit(100)

@@ -1,7 +1,8 @@
 import click
 
+from database import db as sqldb
 from wiktionary import Database, Declensions
-from models import Form, Lemma, db as sqldb
+from models import Form, Lemma
 
 articles = Database('articles.xml')
 d = Declensions(articles)
@@ -19,24 +20,26 @@ with open('failures.txt', 'w') as out:
   count = 0
   unparsed = 0
 
-  with click.progressbar(articles.entries, label='populating') as entries:
-    for entry in entries:
-      if entry.parsed:
-        try:
-          if entry.title in known_failures:
+  with click.progressbar(articles.pages, label='populating') as pages:
+    for page in pages:
+      try:
+          if not page.parsed:
             continue
 
-          if not entry.is_icelandic:
+          if page.title in known_failures:
+            continue
+
+          if not page.is_icelandic:
             continue
 
           declensions = []
 
           try:
-            declensions = d.get_declensions(entry.title)
+            declensions = d.get_declensions(page.title)
           except Exception:
-            failures.append(entry.title)
+            failures.append(page.title)
 
-          lemma = Lemma(name=entry.title, part_of_speech=entry.part_of_speech, category=entry.category)
+          lemma = Lemma(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
           forms = [Form(name=form, head_word=lemma) for form in declensions]
 
           with sqldb.atomic():
@@ -46,10 +49,8 @@ with open('failures.txt', 'w') as out:
               Form.bulk_create(forms)
 
           count += 1
-        except Exception as exc:
-          failures.append(entry.title)
-      else:
-        unparsed += 1
+      except Exception as exc:
+        failures.append(page.title)
 
     out.write("{} not parsed".format(unparsed) + "\n")
     out.write("{} failed".format(len(failures)) + "\n")

@@ -3,33 +3,13 @@ import wikitextparser as wtp
 
 from wikiexpand.expand import ExpansionContext
 from wikiexpand.expand.templates import TemplateDict
-
-
-class cached_property(object):
-    """
-    Descriptor (non-data) for building an attribute on-demand on first use.
-    """
-    def __init__(self, factory):
-        """
-        <factory> is called such: factory(instance) to build the attribute.
-        """
-        self._attr_name = factory.__name__
-        self._factory = factory
-
-    def __get__(self, instance, owner):
-        # Build the attribute.
-        attr = self._factory(instance)
-
-        # Cache the value; hide ourselves.
-        setattr(instance, self._attr_name, attr)
-
-        return attr
+from utils import cached_property
 
 
 NOUN_TEMPLATES = ('-is-nafnorð-', '-is-sérnafn-', '-is-örnefni-', '-is-karlmannsnafn-', '-is-kvenmannsnafn-')
 
 
-class Entry:
+class Page:
   def __init__(self, page, ns):
     self.page = page
     self.ns = ns
@@ -91,7 +71,7 @@ class Entry:
     return False
 
   def __repr__(self):
-    return '<Entry(title=%s)>' % (self.title)
+    return '<Page(title=%s)>' % (self.title)
 
 
 class Database:
@@ -100,22 +80,20 @@ class Database:
     articles = ET.parse(xml_file)
     pages = articles.getroot().iter('{http://www.mediawiki.org/xml/export-0.10/}page')
 
-    entries = [Entry(page, ns) for page in pages]
+    pages = [Page(page, ns) for page in pages]
 
-    self.entries = entries
-
-    self.entries_by_title = {}
+    self.pages_by_title = {}
     self.declension_templates = {}
 
-    for e in entries:
-      self.entries_by_title[e.title] = e
+    for page in pages:
+      self.pages_by_title[page.title] = page
 
-      if e.title.startswith('Snið:Fallbeyging'):
-        decl = e.title.replace('Snið:Fallbeyging', '').strip()
-        self.declension_templates[decl] = e
+      if page.title.startswith('Snið:Fallbeyging'):
+        decl = page.title.replace('Snið:Fallbeyging', '').strip()
+        self.declension_templates[decl] = page
 
-  def get_by_title(self, title):
-    return self.entries_by_title[title]
+  def get_by_title(self, name):
+    return self.pages_by_title[name]
 
   def get_declension_template(self, name):
     return self.declension_templates[name]

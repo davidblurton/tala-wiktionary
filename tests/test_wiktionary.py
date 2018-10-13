@@ -4,9 +4,6 @@ from wiktionary import Database, Declensions
 
 db = Database('hestur.xml')
 
-def test_database_discovers_pages():
-  assert db.get_by_title('hestur') is not None
-
 def test_database_discovers_templates():
   assert db.get_declension_template('kk sb 01') is not None
 
