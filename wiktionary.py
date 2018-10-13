@@ -92,6 +92,10 @@ class Wiktionary:
         decl = page.title.replace('Snið:Fallbeyging', '').strip()
         self.declension_templates[decl] = page
 
+  @property
+  def pages(self):
+    return self.pages_by_title.values()
+
   def get_by_title(self, name):
     return self.pages_by_title[name]
 

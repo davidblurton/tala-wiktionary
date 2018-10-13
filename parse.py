@@ -4,8 +4,8 @@ from database import db as sqldb
 from wiktionary import Wiktionary, Declensions
 from models import Form, Lemma
 
-articles = Wiktionary('articles.xml')
-d = Declensions(articles)
+wikitionary = Wiktionary('articles.xml')
+d = Declensions(wikitionary)
 
 sqldb.drop_tables([Form, Lemma])
 sqldb.create_tables([Form, Lemma])
@@ -20,7 +20,7 @@ with open('failures.txt', 'w') as out:
   count = 0
   unparsed = 0
 
-  with click.progressbar(articles.pages, label='populating') as pages:
+  with click.progressbar(wikitionary.pages, label='populating') as pages:
     for page in pages:
       try:
           if not page.parsed:
@@ -32,19 +32,12 @@ with open('failures.txt', 'w') as out:
           if not page.is_icelandic:
             continue
 
-          declensions = []
+          lemma = Lemma.create(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
 
-          try:
-            declensions = d.get_declensions(page.title)
-          except Exception:
-            failures.append(page.title)
-
-          lemma = Lemma(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
+          declensions = d.get_declensions(page.title)
           forms = [Form(name=form, head_word=lemma) for form in declensions]
 
           with sqldb.atomic():
-            lemma.save()
-
             if forms:
               Form.bulk_create(forms)
 
