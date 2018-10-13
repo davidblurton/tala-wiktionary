@@ -13,7 +13,7 @@ class BaseModel(Model):
     database = db
 
 class Lemma(BaseModel):
-  name = TextField()
+  name = TextField(index=True)
   part_of_speech = TextField()
   category = TextField()
 
@@ -22,7 +22,7 @@ class Lemma(BaseModel):
 
 
 class Form(BaseModel):
-  name = TextField()
+  name = TextField(index=True)
   head_word = ForeignKeyField(Lemma)
 
   def __repr__(self):
