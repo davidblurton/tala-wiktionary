@@ -76,6 +76,14 @@ class Entry:
         return templates[index + 1].name.replace('.', '')
 
   @cached_property
+  def category(self):
+    templates = self.parsed.templates
+
+    for template in templates:
+      if template.name in NOUN_TEMPLATES:
+        return template.name.replace('-is-', '').replace('-', '')
+
+  @cached_property
   def is_icelandic(self):
     if self.parsed.templates:
       return self.parsed.templates[0].name == '-is-'

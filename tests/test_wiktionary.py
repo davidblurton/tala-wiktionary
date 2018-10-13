@@ -21,6 +21,10 @@ def test_entry_declension_arguments():
 
 def test_entry_part_of_speech():
   entry = db.get_by_title('hestur')
+  assert entry.category == 'nafnorð'
+
+def test_entry_part_of_speech():
+  entry = db.get_by_title('hestur')
   assert entry.part_of_speech == 'kk'
 
 def test_entry_is_icelandic():

@@ -1,6 +1,6 @@
 from wiktionary import Database, Declensions
 
-word = 'þessi'
+word = 'Darri'
 
 db = Database('articles.xml')
 

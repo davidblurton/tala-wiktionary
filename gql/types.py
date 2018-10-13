@@ -4,6 +4,7 @@ import models
 
 class Lemma(graphene.ObjectType):
     name = graphene.String()
+    category = graphene.String()
     part_of_speech = graphene.String()
     declensions = graphene.List(graphene.List(graphene.String))
 

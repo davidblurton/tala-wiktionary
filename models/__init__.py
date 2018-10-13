@@ -15,6 +15,7 @@ class BaseModel(Model):
 class Lemma(BaseModel):
   name = TextField()
   part_of_speech = TextField()
+  category = TextField()
 
   def __repr__(self):
     return '<Lemma(name=%s)>' % (self.name)

@@ -29,9 +29,14 @@ with open('failures.txt', 'w') as out:
           if not entry.is_icelandic:
             continue
 
-          declensions = d.get_declensions(entry.title)
+          declensions = []
 
-          lemma = Lemma(name=entry.title, part_of_speech=entry.part_of_speech)
+          try:
+            declensions = d.get_declensions(entry.title)
+          except Exception:
+            failures.append(entry.title)
+
+          lemma = Lemma(name=entry.title, part_of_speech=entry.part_of_speech, category=entry.category)
           forms = [Form(name=form, head_word=lemma) for form in declensions]
 
           with sqldb.atomic():
