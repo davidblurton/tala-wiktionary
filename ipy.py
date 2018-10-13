@@ -1,8 +1,8 @@
-from wiktionary import Database, Declensions
+from wiktionary import Wiktionary, Declensions
 
 word = 'Darri'
 
-db = Database('articles.xml')
+db = Wiktionary('articles.xml')
 
 d = Declensions(db)
 

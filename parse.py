@@ -1,10 +1,10 @@
 import click
 
 from database import db as sqldb
-from wiktionary import Database, Declensions
+from wiktionary import Wiktionary, Declensions
 from models import Form, Lemma
 
-articles = Database('articles.xml')
+articles = Wiktionary('articles.xml')
 d = Declensions(articles)
 
 sqldb.drop_tables([Form, Lemma])

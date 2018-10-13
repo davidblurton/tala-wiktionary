@@ -74,7 +74,7 @@ class Page:
     return '<Page(title=%s)>' % (self.title)
 
 
-class Database:
+class Wiktionary:
   def __init__(self, xml_file):
     ns = {'ns': 'http://www.mediawiki.org/xml/export-0.10/'}
     articles = ET.parse(xml_file)
@@ -142,7 +142,7 @@ class Declensions:
       print(row_format.format(*g))
 
 
-# db = Database('articles.xml')
+# db = Wiktionary('articles.xml')
 
 # def pp(word):
 #   try:
