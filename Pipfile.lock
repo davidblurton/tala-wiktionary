@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c1f5408e97ab8c6d137a897eeacb7e849b7a15dba6f6a2b4526e7f637008f80a"
+            "sha256": "5864d4e16d5a15f284ac4f0dea22b030ee7e0fbe151867665e7f5999fe7a67a5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -263,6 +263,13 @@
                 "sha256:c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
             ],
             "version": "==4.3.0"
+        },
+        "ipdb": {
+            "hashes": [
+                "sha256:7081c65ed7bfe7737f83fa4213ca8afd9617b42ff6b3f1daf9a3419839a2a00a"
+            ],
+            "index": "pypi",
+            "version": "==0.11"
         },
         "ipython": {
             "hashes": [
