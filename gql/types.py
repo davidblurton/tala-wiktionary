@@ -2,21 +2,26 @@ import graphene
 import models
 
 
+class Form(graphene.ObjectType):
+    name = graphene.String()
+    head_word = graphene.Field(lambda: Lemma)
+    grammar_case = graphene.String()
+
+
 class Lemma(graphene.ObjectType):
     name = graphene.String()
     category = graphene.String()
     part_of_speech = graphene.String()
-    declensions = graphene.List(graphene.List(graphene.String))
+    forms = graphene.List(graphene.List(Form))
 
-    def resolve_declensions(lemma, info):
-      forms = models.Form.select().join(models.Lemma).where(models.Lemma.id == lemma.id)
+    def resolve_forms(lemma, info):
+      forms = lemma.forms
 
-      declensions = [f.name for f in forms]
-      group_size = len(declensions) // 4
+      group_size = len(forms) // 4
+      grouped = zip(*(iter(forms),) * group_size)
 
-      grouped = zip(*(iter(declensions),) * group_size)
       return list(map(list, zip(*grouped)))
 
-class Form(graphene.ObjectType):
-    name = graphene.String()
-    head_word = graphene.Field(Lemma)
+TYPES = [
+  Form, Lemma
+]

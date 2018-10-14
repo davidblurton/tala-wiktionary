@@ -35,7 +35,7 @@ with open('failures.txt', 'w') as out:
           lemma = Lemma.create(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
 
           declensions = d.get_declensions(page.title)
-          forms = [Form(name=form, head_word=lemma) for form in declensions]
+          forms = [Form(name=declension['form'], grammar_case=declension['grammar_case'], head_word=lemma) for declension in declensions]
 
           with sqldb.atomic():
             if forms:

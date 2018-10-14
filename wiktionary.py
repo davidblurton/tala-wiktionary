@@ -107,36 +107,43 @@ class Declensions:
   def __init__(self, database):
     self.db = database
 
+  def get_declension_templates(self, declension):
+    templ = self.db.get_declension_template(declension)
+
+    declensions = []
+
+    for a in templ.parsed.templates[0].arguments:
+      val = a.value.strip()
+
+      if '{{{' in val:
+        declensions.append(val)
+
+    return declensions
+
+
   def get_declensions(self, word):
-    try:
-      entry = self.db.get_by_title(word)
-      templ = self.db.get_declension_template(entry.declension)
+    page = self.db.get_by_title(word)
 
-      declension_args = entry.declension_arguments
-      declensions = []
+    templates = self.get_declension_templates(page.declension)
+    declension_args = page.declension_arguments
 
-      for a in templ.parsed.templates[0].arguments:
-        val = a.value.strip()
+    results = []
+    tpl = TemplateDict()
+    ctx = ExpansionContext(templates=tpl)
 
-        if '{{{' in val:
-          declensions.append(val)
+    for template in templates:
+      parsed = wtp.parse(template)
+      grammar_case = parsed.parameters[0].name
 
-      results = []
-      tpl = TemplateDict()
-      ctx = ExpansionContext(templates=tpl)
+      args = {str(i + 1):val for i, val in enumerate(page.declension_arguments)}
+      expanded = ctx.expand(template, args)
 
-      for decl in declensions:
-        args = {str(i + 1):val for i, val in enumerate(entry.declension_arguments)}
-        expanded = ctx.expand(decl, args)
+      cleaned = str(expanded).replace('[[', '').replace(']]', '').strip()
 
-        cleaned = str(expanded).replace('[[', '').replace(']]', '').strip()
+      if cleaned != '':
+        results.append(dict(grammar_case=grammar_case, form=cleaned))
 
-        if cleaned != '':
-          results.append(cleaned)
-
-      return results
-    except Exception as exc:
-      raise Exception('Failed to get declensions for {}'.format(word))
+    return results
 
   def print_declensions(self, declensions):
     col_count = len(declensions) // 4
@@ -150,10 +157,10 @@ class Declensions:
 
 # def pp(word):
 #   try:
-#     entry = db.get_by_title(word)
-#     templ = db.get_declension_template(entry.declension)
+#     page = db.get_by_title(word)
+#     templ = db.get_declension_template(page.declension)
 
 #     d = Declensions()
-#     d.print_declensions(d.get_declensions(entry, templ))
+#     d.print_declensions(d.get_declensions(page, templ))
 #   except KeyError:
 #     print('{} not found'.format(word))
