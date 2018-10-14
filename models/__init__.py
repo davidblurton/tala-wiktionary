@@ -14,7 +14,7 @@ class Lemma(BaseModel):
 class Form(BaseModel):
   name = TextField(index=True)
   head_word = ForeignKeyField(Lemma, backref='forms')
-  grammar_case = TextField()
+  grammar_tag = TextField()
 
   def __repr__(self):
     return '<Form(name=%s)>' % (self.name)

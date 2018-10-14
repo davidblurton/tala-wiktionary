@@ -66,7 +66,9 @@ class Page:
   @cached_property
   def is_icelandic(self):
     if self.parsed.templates:
-      return self.parsed.templates[0].name == '-is-'
+      for template in self.parsed.templates:
+        if template.name == '-is-':
+          return True
 
     return False
 
@@ -133,7 +135,7 @@ class Declensions:
 
     for template in templates:
       parsed = wtp.parse(template)
-      grammar_case = parsed.parameters[0].name
+      grammar_tag = parsed.parameters[0].name
 
       args = {str(i + 1):val for i, val in enumerate(page.declension_arguments)}
       expanded = ctx.expand(template, args)
@@ -141,7 +143,7 @@ class Declensions:
       cleaned = str(expanded).replace('[[', '').replace(']]', '').strip()
 
       if cleaned != '':
-        results.append(dict(grammar_case=grammar_case, form=cleaned))
+        results.append(dict(grammar_tag=grammar_tag, form=cleaned))
 
     return results
 

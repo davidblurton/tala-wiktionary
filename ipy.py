@@ -1,6 +1,6 @@
 from wiktionary import Wiktionary, Declensions
 
-word = 'Darri'
+word = 'ormur'
 
 db = Wiktionary('articles.xml')
 

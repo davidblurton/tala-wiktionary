@@ -23,25 +23,25 @@ with open('failures.txt', 'w') as out:
   with click.progressbar(wikitionary.pages, label='populating') as pages:
     for page in pages:
       try:
-          if not page.parsed:
-            continue
+        if not page.parsed:
+          continue
 
-          if page.title in known_failures:
-            continue
+        if page.title in known_failures:
+          continue
 
-          if not page.is_icelandic:
-            continue
+        if not page.is_icelandic:
+          continue
 
-          lemma = Lemma.create(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
+        lemma = Lemma.create(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
 
-          declensions = d.get_declensions(page.title)
-          forms = [Form(name=declension['form'], grammar_case=declension['grammar_case'], head_word=lemma) for declension in declensions]
+        declensions = d.get_declensions(page.title)
+        forms = [Form(name=declension['form'], grammar_tag=declension['grammar_tag'], head_word=lemma) for declension in declensions]
 
-          with sqldb.atomic():
-            if forms:
-              Form.bulk_create(forms)
+        with sqldb.atomic():
+          if forms:
+            Form.bulk_create(forms)
 
-          count += 1
+        count += 1
       except Exception as exc:
         failures.append(page.title)
 

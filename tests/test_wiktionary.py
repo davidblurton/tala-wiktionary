@@ -38,4 +38,4 @@ def test_declensions():
   declensions = Declensions(wiktionary).get_declensions('hestur')
 
   assert len(declensions) == 16
-  assert declensions[1] == dict(form='hesturinn', grammar_case='lo.nf.et.á')
+  assert declensions[1] == dict(form='hesturinn', grammar_tag='lo.nf.et.á')
