@@ -10,4 +10,6 @@ RUN pipenv install --deploy --system
 
 COPY . .
 
+EXPOSE 5000
+
 CMD [ "python", "./app.py" ]
