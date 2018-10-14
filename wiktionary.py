@@ -15,7 +15,7 @@ class Page:
     self.ns = ns
 
   @cached_property
-  def title(self):
+  def name(self):
     return self.page.find('ns:title', self.ns).text
 
   @cached_property
@@ -88,10 +88,10 @@ class Wiktionary:
     self.declension_templates = {}
 
     for page in pages:
-      self.pages_by_title[page.title] = page
+      self.pages_by_title[page.name] = page
 
-      if page.title.startswith('Snið:Fallbeyging'):
-        decl = page.title.replace('Snið:Fallbeyging', '').strip()
+      if page.name.startswith('Snið:Fallbeyging'):
+        decl = page.name.replace('Snið:Fallbeyging', '').strip()
         self.declension_templates[decl] = page
 
   @property
@@ -143,7 +143,7 @@ class Declensions:
       cleaned = str(expanded).replace('[[', '').replace(']]', '').strip()
 
       if cleaned != '':
-        results.append(dict(grammar_tag=grammar_tag, form=cleaned))
+        results.append(dict(grammar_tag=grammar_tag, name=cleaned))
 
     return results
 

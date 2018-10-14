@@ -9,7 +9,7 @@ def test_database_discovers_templates():
 
 def test_page_title():
   page = wiktionary.get_by_title('hestur')
-  assert page.title == 'hestur'
+  assert page.name == 'hestur'
 
 def test_page_declension_arguments():
   page = wiktionary.get_by_title('hestur')
@@ -38,4 +38,4 @@ def test_declensions():
   declensions = Declensions(wiktionary).get_declensions('hestur')
 
   assert len(declensions) == 16
-  assert declensions[1] == dict(form='hesturinn', grammar_tag='lo.nf.et.á')
+  assert declensions[1] == dict(name='hesturinn', grammar_tag='lo.nf.et.á')

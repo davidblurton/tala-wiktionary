@@ -26,16 +26,16 @@ with open('failures.txt', 'w') as out:
         if not page.parsed:
           continue
 
-        if page.title in known_failures:
+        if page.name in known_failures:
           continue
 
         if not page.is_icelandic:
           continue
 
-        lemma = Lemma.create(name=page.title, part_of_speech=page.part_of_speech, category=page.category)
+        lemma = Lemma.create(**page)
 
-        declensions = d.get_declensions(page.title)
-        forms = [Form(name=declension['form'], grammar_tag=declension['grammar_tag'], head_word=lemma) for declension in declensions]
+        declensions = d.get_declensions(page.name)
+        forms = [Form(**declension, head_word=lemma) for declension in declensions]
 
         with sqldb.atomic():
           if forms:
@@ -43,7 +43,7 @@ with open('failures.txt', 'w') as out:
 
         count += 1
       except Exception as exc:
-        failures.append(page.title)
+        failures.append(page.name)
 
     out.write("{} not parsed".format(unparsed) + "\n")
     out.write("{} failed".format(len(failures)) + "\n")
