@@ -36,7 +36,7 @@ with open('failures.txt', 'w') as out:
         translations = [Translation(**translation, lemma=lemma) for translation in page.translations]
 
         declensions = d.get_declensions(page.name)
-        forms = [Form(**declension, head_word=lemma) for declension in declensions]
+        forms = [Form(**declension, lemma=lemma) for declension in declensions]
 
         with sqldb.atomic():
           if forms:

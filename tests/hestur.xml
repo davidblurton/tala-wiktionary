@@ -1,0 +1,106 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="is">
+  <page>
+    <title>hestur</title>
+    <ns>0</ns>
+    <id>4330</id>
+    <revision>
+      <id>251487</id>
+      <parentid>250637</parentid>
+      <timestamp>2018-06-03T22:47:24Z</timestamp>
+      <contributor>
+        <username>Bragi H</username>
+        <id>1863</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">{{-is-}}
+
+{{Fallbeyging kk sb 01|hest|ur|
+mynd=Finnhorse stallion.jpg
+|lýsing= [1] Hestur.
+|opið=1}}
+
+{{-is-nafnorð-}}
+'''hestur''' {{kk.}}; {{no.s.b.}}
+:[1] ''dýrafræði;'' tegund stórra spendýra af [[hófdýr]]aættbálki og eitt af sjö eftirlifandi tegundum af ''Equus''-ættkvíslinni.
+
+{{-samheiti-}}
+:[1] [[hross]]
+
+{{-sjá einnig-}}
+:[1] [[foli]], [[fákur]], [[hryssa]], [[jór]]
+
+{{-þýðingar-}}
+{{þýðingar
+|da= {{þýðing|da|hest}}
+|en= {{þýðing|en|horse}}
+|et= {{þýðing|et|hobune}}
+|fi= {{þýðing|fi|hevonen}}
+|fr= {{þýðing|fr|cheval}}
+|no= {{þýðing|no|hest}}
+|ru= {{þýðing-xx|ru|lošadj|лошадь}}, {{þýðing-xx|ru|konj|конь}}
+|sk= {{þýðing|sk|kôň}}
+|es= {{þýðing|es|caballo}}
+|sv= {{þýðing|sv|häst}}
+|cs= {{þýðing|cs|kůň}}
+|hu= {{þýðing|hu|ló}}
+|de= {{þýðing|de|Pferd}}
+}}
+
+{{-tilvísun-}}
+{{Wikipedia|hestur}}
+{{Ref-IcelandicOnlineDictionary|hestur}}
+{{Ref-Orðabók Háskólans|hestur}}</text>
+      <sha1>pb022xgrepuz1z5qls4zyu5ha67f8gm</sha1>
+    </revision>
+  </page>
+    <page>
+      <title>Snið:Fallbeyging kk sb 01</title>
+      <ns>10</ns>
+      <id>4306</id>
+      <revision>
+        <id>100781</id>
+        <parentid>96204</parentid>
+        <timestamp>2009-03-02T14:38:13Z</timestamp>
+        <contributor>
+          <username>SpaceBirdyBot</username>
+          <id>24</id>
+        </contributor>
+        <minor />
+        <comment>bird-ó-vél</comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <text xml:space="preserve">{{Fallbeyging|
+  1eó=[[{{{lo.nf.et.ó|}}} {{{1}}}{{{2}}}]] {{{no|}}}
+  |1eá=[[{{{lo.nf.et.á|}}} {{{1}}}{{{2}}}inn]] {{{no2|{{{no|}}}}}}
+  |1fó=[[{{{lo.nf.ft.ó|}}} {{{1}}}ar]] {{{no|}}}
+  |1fá=[[{{{lo.nf.ft.á|}}} {{{1}}}arnir]] {{{no2|{{{no|}}}}}}
+  |2eó=[[{{{lo.þf.et.ó|}}} {{{1}}}]] {{{no|}}}
+  |2eá=[[{{{lo.þf.et.á|}}} {{{1}}}inn]] {{{no2|{{{no|}}}}}}
+  |2fó=[[{{{lo.þf.ft.ó|}}} {{{1}}}a]] {{{no|}}}
+  |2fá=[[{{{lo.þf.ft.á|{{{lo.nf.ft.á|}}}}}} {{{1}}}ana]] {{{no2|{{{no|}}}}}}
+  |3eó=[[{{{lo.þgf.et.ó|}}} {{{1}}}i]] {{{no|}}}
+  |3eá=[[{{{lo.þgf.et.á|{{{lo.þf.et.á|}}}}}} {{{1}}}inum]] {{{no2|{{{no|}}}}}}
+  |3fó=[[{{{lo.þgf.ft.ó|}}} {{{1}}}um]] {{{no|}}}
+  |3fá=[[{{{lo.þgf.ft.á|{{{lo.nf.ft.á|}}}}}} {{{1}}}unum]] {{{no2|{{{no|}}}}}}
+  |4eó=[[{{{lo.ef.et.ó|}}} {{{1}}}s]] {{{no|}}}
+  |4eá=[[{{{lo.ef.et.á|{{{lo.þf.et.á|}}}}}} {{{1}}}sins]] {{{no2|{{{no|}}}}}}
+  |4fó=[[{{{lo.ef.ft.ó|}}} {{{1}}}a]] {{{no|}}}
+  |4fá=[[{{{lo.ef.ft.á|{{{lo.nf.ft.á|}}}}}} {{{1}}}anna]] {{{no2|{{{no|}}}}}}
+  |önnur orð=Fallbeyging kk sb 01
+  |mynd={{{mynd|}}}
+  |lýsing={{{lýsing|}}}
+  |commons={{{commons|}}}
+  |breidd={{{breidd|}}}
+  |opið={{{opið|}}}
+  }}&lt;noinclude&gt;
+
+  [[Flokkur:Íslensk fallbeygingasnið|kk sb 01]]&lt;/noinclude&gt;&lt;noinclude&gt;
+  :''Sjá einnig: [[Hjálp:Fallbeygingar]]''.
+  [[en:Template:Icelandic Declension kk sb 01]]
+  [[pt:Predefinição:decl.is.subst.forte.masc.1]]
+  &lt;/noinclude&gt;</text>
+        <sha1>ekvygoo2i3x8p4m6h61miyoop08lmlx</sha1>
+      </revision>
+    </page>
+</mediawiki>

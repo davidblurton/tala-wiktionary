@@ -49,7 +49,7 @@ class Grammar(graphene.ObjectType):
 
 class Form(graphene.ObjectType):
     name = graphene.String()
-    head_word = graphene.Field(lambda: Lemma)
+    lemma = graphene.Field(lambda: Lemma)
     grammar_tag = graphene.String()
     grammar = graphene.Field(Grammar)
 

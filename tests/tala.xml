@@ -1,0 +1,164 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="is">
+  <page>
+      <title>tala</title>
+      <ns>0</ns>
+      <id>5669</id>
+      <revision>
+        <id>246225</id>
+        <parentid>232325</parentid>
+        <timestamp>2017-04-26T03:17:12Z</timestamp>
+        <contributor>
+          <username>OctraBot</username>
+          <id>4503</id>
+        </contributor>
+        <minor />
+        <comment>Bot: Rydder vekk gamle interwikilenker</comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <text xml:space="preserve">{{sjá einnig|[[Tala]]}}
+  {{-is-}}
+
+  {{Fallbeyging kvk vb 01a ö|t|l}}
+
+  {{-is-nafnorð-}}
+  '''tala''' {{kvk.}}; {{no.v.b.}}
+  :[1] ''[[stærðfræði]]:'' [[hlutfirrt]] eining sem notuð er til þess að lýsa fjölda og/eða [[magn|magni]]
+  ::[1a] [[talning]]
+  :[2] [[ræða]]
+  :[3] ''[[málfræði]]:'' hugtak sem gefur til kynna fjölda. Í íslensku skiptist hugtakið „tala“ í [[eintala|eintölu]] og [[fleirtala|fleirtölu]], og eitt sinn í [[tvítala|tvítölu]]
+
+  {{-samheiti-}}
+  :[1] [[númer]] {{hk.}}
+
+  {{-þýðingar-}}
+  {{þýðingar
+  |bg= {{þýðing|bg|число|1}}
+  |da= {{þýðing|da|nummer|1}}
+  |en= {{þýðing|en|number|1}}
+  |eo= {{þýðing|eo|numero|1}}
+  |et= {{þýðing|et|arv|1}}
+  |fi= {{þýðing|fi|numero|1}}
+  |fr= {{þýðing|fr|nombre|1}}
+  |el= {{þýðing|el|αριθμός|1}}
+  |he= {{þýðing|he|מספר|1}}
+  |hr= {{þýðing|hr|broj|1}}
+  |la= {{þýðing|la|numerus|1}}
+  |nl= {{þýðing|nl|aantal|1}}
+  |no= {{þýðing|no|nummer|1}}
+  |pl= {{þýðing|pl|liczba|1}}
+  |pt= {{þýðing|pt|número|1}}
+  |ro= {{þýðing|ro|număr|1}}
+  |ru= {{þýðing|ru|число|1}}
+  |sk= {{þýðing|sk|číslo|1}}
+  |sl= {{þýðing|sl|število|1}}
+  |es= {{þýðing|es|número|1}}
+  |sv= {{þýðing|sv|nummer|1}}
+  |cs= {{þýðing|cs|číslo|1}}
+  |tr= {{þýðing|tr|sayı|1}}
+  |hu= {{þýðing|hu|szám|1}}
+  |de= {{þýðing|de|Zahl|1,3}}, {{þýðing|de|Anzahl|1a}}, {{þýðing|de|Ansprache|2}}, {{þýðing|de|Rede|2}}
+  }}
+
+  {{-tilvísun-}}
+  {{Wikipedia|tala}}
+  {{Ref-IcelandicOnlineDictionary|tala}}
+  {{Ref-Orðabók Háskólans|tala}}
+
+  {{----}}
+
+  {{Sagnbeyging|
+  ég-nútíð=tala
+  |þú-nútíð=talar
+  |hann-nútíð=talar
+  |við-nútíð=tölum
+  |þið-nútíð=talið
+  |þeir-nútíð=tala
+  |Þátíð=talaði
+  |Lýsingarháttur þátíðar=talað
+  |Viðtengingarháttur=tali
+  |Boðháttur=talaðu
+  |allar sagnbeygingar=tala/sagnbeyging
+  }}
+
+  {{-is-sagnorð-}}
+  '''tala'''; {{so.v.b.}}
+  :[1] [[mæla]]
+
+  {{-samheiti-}}
+  :[1] [[mæla]], [[ræða]], [[segja]]
+
+  {{-andheiti-}}
+  :[1] [[þegja]]
+
+  {{-dæmi-}}
+  :[1] [[þau|Þau]] ''tala'' ekki [[franska|frönsku]].
+
+  {{-þýðingar-}}
+  {{þýðingar
+  |da= {{þýðing|da|snakke}}, {{þýðing|da|tale}}
+  |en= {{þýðing|en|speak}}, {{þýðing|en|talk}}
+  |et= {{þýðing|et|rääkima}}
+  |fi= {{þýðing|fi|puhua}}
+  |fr= {{þýðing|fr|parler}}
+  |no= {{þýðing|no|snakke}}, {{þýðing|no|tale}}
+  |ru= {{þýðing|ru|говорить}}
+  |sk= {{þýðing|sk|hovoriť}}
+  |es= {{þýðing|es|hablar}}
+  |sv= {{þýðing|sv|tala}}
+  |cs= {{þýðing|cs|mluvit}}, {{þýðing|cs|hovořit}}
+  |de= {{þýðing|de|sprechen}}
+  |nl= {{þýðing|nl|praten}}
+  }}
+
+  {{-tilvísun-}}
+  {{Ref-IcelandicOnlineDictionary|tala}}
+  {{Ref-Orðabók Háskólans|tala}}</text>
+        <sha1>cpbc4ozhkd70tfugoaxl1ukt1l671ma</sha1>
+      </revision>
+    </page>
+      <page>
+        <title>Snið:Fallbeyging kvk vb 01a ö</title>
+        <ns>10</ns>
+        <id>4278</id>
+        <revision>
+          <id>100765</id>
+          <parentid>100760</parentid>
+          <timestamp>2009-03-02T14:29:43Z</timestamp>
+          <contributor>
+            <username>SpaceBirdyBot</username>
+            <id>24</id>
+          </contributor>
+          <minor />
+          <comment>bird-ó-vél</comment>
+          <model>wikitext</model>
+          <format>text/x-wiki</format>
+          <text xml:space="preserve">{{Fallbeyging|
+    1eó=[[{{{lo.nf.et.ó|}}} {{{1}}}a{{{2}}}a]] {{{no|}}}
+    |1eá=[[{{{lo.nf.et.á|}}} {{{1}}}a{{{2}}}an]] {{{no2|{{{no|}}}}}}
+    |1fó=[[{{{lo.nf.ft.ó|}}} {{{1}}}ö{{{2}}}ur]] {{{no|}}}
+    |1fá=[[{{{lo.nf.ft.á|}}} {{{1}}}ö{{{2}}}urnar]] {{{no2|{{{no|}}}}}}
+    |2eó=[[{{{lo.þf.et.ó|}}} {{{1}}}ö{{{2}}}u]] {{{no|}}}
+    |2eá=[[{{{lo.þf.et.á|}}} {{{1}}}ö{{{2}}}una]] {{{no2|{{{no|}}}}}}
+    |2fó=[[{{{lo.þf.ft.ó|}}} {{{1}}}ö{{{2}}}ur]] {{{no|}}}
+    |2fá=[[{{{lo.þf.ft.á|{{{lo.nf.ft.á|}}}}}} {{{1}}}ö{{{2}}}urnar]] {{{no2|{{{no|}}}}}}
+    |3eó=[[{{{lo.þgf.et.ó|}}} {{{1}}}ö{{{2}}}u]] {{{no|}}}
+    |3eá=[[{{{lo.þgf.et.á|{{{lo.þf.et.á|}}}}}} {{{1}}}ö{{{2}}}unni]] {{{no2|{{{no|}}}}}}
+    |3fó=[[{{{lo.þgf.ft.ó|}}} {{{1}}}ö{{{2}}}um]] {{{no|}}}
+    |3fá=[[{{{lo.þgf.ft.á|{{{lo.nf.ft.á|}}}}}} {{{1}}}ö{{{2}}}unum]] {{{no2|{{{no|}}}}}}
+    |4eó=[[{{{lo.ef.et.ó|}}} {{{1}}}ö{{{2}}}u]] {{{no|}}}
+    |4eá=[[{{{lo.ef.et.á|{{{lo.þf.et.á|}}}}}} {{{1}}}ö{{{2}}}unnar]] {{{no2|{{{no|}}}}}}
+    |4fó=[[{{{lo.ef.ft.ó|}}} {{{1}}}a{{{2}}}na]] {{{no|}}}
+    |4fá=[[{{{lo.ef.ft.á|{{{lo.nf.ft.á|}}}}}} {{{1}}}a{{{2}}}nanna]] {{{no2|{{{no|}}}}}}
+    |önnur orð=Fallbeyging kvk vb 01a ö
+    |mynd={{{mynd|}}}
+    |lýsing={{{lýsing|}}}
+    |commons={{{commons|}}}
+    |breidd={{{breidd|}}}
+    |opið={{{opið|}}}
+    }}&lt;noinclude&gt;
+
+    [[Flokkur:Íslensk fallbeygingasnið|kvk vb 01a ö]]&lt;/noinclude&gt;</text>
+          <sha1>2ta3bg22iw0zd3lgdjkl2g73wt6dauw</sha1>
+        </revision>
+      </page>
+</mediawiki>

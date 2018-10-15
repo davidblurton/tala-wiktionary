@@ -2,7 +2,7 @@ import pytest
 
 from wiktionary import Wiktionary, Declensions
 
-wiktionary = Wiktionary('hestur.xml')
+wiktionary = Wiktionary('tests/hestur.xml')
 
 def test_database_discovers_templates():
   assert wiktionary.get_declension_template('kk sb 01') is not None
