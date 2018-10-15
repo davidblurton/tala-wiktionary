@@ -30,10 +30,11 @@ def test_page_is_icelandic():
 
 def test_page_translations():
   page = wiktionary.get_by_title('hestur')
-  translations = {t['lang']: t['meaning'] for t in page.translations}
+  translations = list(page.translations)
+  translations_by_lang = {t['lang']: t['meaning'] for t in translations}
 
-  assert len(translations.values()) == 12
-  assert translations['en'] == 'horse'
+  assert len(translations) == 16  # XXX: There are multiple translations for some languages
+  assert translations_by_lang['en'] == 'horse'
 
 def test_get_declension_templates():
   templates = Declensions(wiktionary).get_declension_templates('kk sb 01')

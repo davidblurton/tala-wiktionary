@@ -79,6 +79,10 @@ class Page:
         if template.name == 'þýðing':
           yield dict(lang=template.arguments[0].value, meaning=template.arguments[1].value)
 
+        if template.name == 'þýðing-xx':
+          yield dict(lang=template.arguments[0].value, meaning=template.arguments[1].value)
+          yield dict(lang=template.arguments[0].value, meaning=template.arguments[2].value)
+
   def to_dict(self):
     return dict(name=self.name, part_of_speech=self.part_of_speech, category=self.category)
 
