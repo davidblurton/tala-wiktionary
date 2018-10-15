@@ -1,5 +1,10 @@
 from peewee import *
-from database import BaseModel
+from database import db
+
+
+class BaseModel(Model):
+  class Meta:
+    database = db
 
 
 class Lemma(BaseModel):
@@ -20,7 +25,17 @@ class Form(BaseModel):
     return '<Form(name=%s)>' % (self.name)
 
 
+class Translation(BaseModel):
+  lang = TextField(index=True)
+  meaning = TextField(index=True)
+  lemma = ForeignKeyField(Lemma, backref='translations')
+
+  def __repr__(self):
+    return '<Translation(lang=%s, meaning=%s)>' % (self.name, self.meaning)
+
+
 MODELS = [
   Lemma,
   Form,
+  Translation,
 ]

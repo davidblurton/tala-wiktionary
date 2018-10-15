@@ -7,6 +7,7 @@ import gql.types as types
 class Stats(graphene.ObjectType):
   lemmas = graphene.Int()
   forms = graphene.Int()
+  translations = graphene.Int()
 
 
 class Query(graphene.ObjectType):
@@ -30,5 +31,6 @@ class Query(graphene.ObjectType):
     def resolve_stats(self, info):
         lemmas = Lemma.select().count()
         forms = Form.select().count()
+        translations = Translation.select().count()
 
-        return Stats(lemmas=lemmas, forms=forms)
+        return Stats(lemmas=lemmas, forms=forms, translations=translations)

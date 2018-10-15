@@ -1,8 +1,8 @@
 from wiktionary import Wiktionary, Declensions
 
-word = 'ormur'
+word = 'hestur'
 
-db = Wiktionary('articles.xml')
+db = Wiktionary('hestur.xml')
 
 d = Declensions(db)
 

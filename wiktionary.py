@@ -72,8 +72,18 @@ class Page:
 
     return False
 
+  @cached_property
+  def translations(self):
+    if self.parsed.templates:
+      for template in self.parsed.templates:
+        if template.name == 'þýðing':
+          yield dict(lang=template.arguments[0].value, meaning=template.arguments[1].value)
+
+  def to_dict(self):
+    return dict(name=self.name, part_of_speech=self.part_of_speech, category=self.category)
+
   def __repr__(self):
-    return '<Page(title=%s)>' % (self.title)
+    return '<Page(name=%s)>' % (self.name)
 
 
 class Wiktionary:

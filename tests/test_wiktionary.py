@@ -28,6 +28,13 @@ def test_page_is_icelandic():
   page = wiktionary.get_by_title('hestur')
   assert page.is_icelandic == True
 
+def test_page_translations():
+  page = wiktionary.get_by_title('hestur')
+  translations = {t['lang']: t['meaning'] for t in page.translations}
+
+  assert len(translations.values()) == 12
+  assert translations['en'] == 'horse'
+
 def test_get_declension_templates():
   templates = Declensions(wiktionary).get_declension_templates('kk sb 01')
 

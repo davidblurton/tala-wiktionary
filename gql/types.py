@@ -61,7 +61,8 @@ class Lemma(graphene.ObjectType):
     name = graphene.String()
     category = graphene.String()
     part_of_speech = graphene.String()
-    forms = graphene.List(graphene.List(Form))
+    forms = graphene.List(graphene.List(lambda: Form))
+    translations = graphene.List(lambda: Translation, lang=graphene.String())
 
     def resolve_forms(lemma, info):
       forms = lemma.forms
@@ -70,6 +71,21 @@ class Lemma(graphene.ObjectType):
       grouped = zip(*(iter(forms),) * group_size)
 
       return list(map(list, zip(*grouped)))
+
+    def resolve_translations(lemma, info, lang=None):
+      if not lang:
+        return lemma.translations
+
+      return lemma.translations.select().filter(models.Translation.lang == lang)
+
+
+class Translation(graphene.ObjectType):
+    lang = graphene.String()
+    meaning = graphene.String()
+    lemma = graphene.Field(lambda: Lemma)
+
+    def resolve_forms(translation, info):
+      return translation.lemma
 
 TYPES = [
   Form, Lemma
