@@ -3,34 +3,30 @@ import pytest
 from wiktionary import Wiktionary, Declensions
 
 wiktionary = Wiktionary('tests/hestur.xml')
+page = wiktionary.get_by_title('hestur')
+entry = next(page.get_entries())
 
 def test_database_discovers_templates():
   assert wiktionary.get_declension_template('kk sb 01') is not None
 
-def test_page_title():
-  page = wiktionary.get_by_title('hestur')
-  assert page.name == 'hestur'
+def test_entry_title():
+  assert entry.name == 'hestur'
 
-def test_page_declension_arguments():
-  page = wiktionary.get_by_title('hestur')
-  assert page.declension_arguments[0] == 'hest'
-  assert page.declension_arguments[1] == 'ur'
+def test_entry_declension_arguments():
+  assert entry.declension_arguments[0] == 'hest'
+  assert entry.declension_arguments[1] == 'ur'
 
-def test_page_part_of_speech():
-  page = wiktionary.get_by_title('hestur')
-  assert page.category == 'nafnorð'
+def test_entry_part_of_speech():
+  assert entry.category == 'nafnorð'
 
-def test_page_part_of_speech():
-  page = wiktionary.get_by_title('hestur')
-  assert page.part_of_speech == 'kk'
+def test_entry_part_of_speech():
+  assert entry.part_of_speech == 'kk'
 
-def test_page_is_icelandic():
-  page = wiktionary.get_by_title('hestur')
-  assert page.is_icelandic == True
+def test_entry_is_icelandic():
+  assert entry.is_icelandic == True
 
-def test_page_translations():
-  page = wiktionary.get_by_title('hestur')
-  translations = list(page.translations)
+def test_entry_translations():
+  translations = list(entry.translations)
   translations_by_lang = {t['lang']: t['meaning'] for t in translations}
 
   assert len(translations) == 16  # XXX: There are multiple translations for some languages

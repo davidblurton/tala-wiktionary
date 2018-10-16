@@ -18,38 +18,38 @@ known_failures = parse_failures + temp_failures
 with open('failures.txt', 'w') as out:
   failures = []
   count = 0
-  unparsed = 0
 
   with click.progressbar(wikitionary.pages, label='populating') as pages:
     for page in pages:
-      try:
-        if not page.parsed:
-          continue
+      for entry in page.get_entries():
+        try:
+          if entry.name in known_failures:
+            continue
 
-        if page.name in known_failures:
-          continue
+          if not entry.is_icelandic:
+            continue
 
-        if not page.is_icelandic:
-          continue
+          if not entry.part_of_speech:
+            # TODO: Don't yield entries we don't understand
+            continue
 
-        lemma = Lemma.create(**page.to_dict())
-        translations = [Translation(**translation, lemma=lemma) for translation in page.translations]
+          lemma = Lemma.create(**entry.to_dict())
+          translations = [Translation(**translation, lemma=lemma) for translation in entry.translations]
 
-        declensions = d.get_declensions(page.name)
-        forms = [Form(**declension, lemma=lemma) for declension in declensions]
+          declensions = d.get_declensions(entry.name)
+          forms = [Form(**declension, lemma=lemma) for declension in declensions]
 
-        with sqldb.atomic():
-          if forms:
-            Form.bulk_create(forms)
+          with sqldb.atomic():
+            if forms:
+              Form.bulk_create(forms)
 
-          if translations:
-            Translation.bulk_create(translations)
+            if translations:
+              Translation.bulk_create(translations)
 
-        count += 1
-      except Exception as exc:
-        failures.append(page.name)
+          count += 1
+        except Exception as exc:
+          failures.append(entry.name)
 
-    out.write("{} not parsed".format(unparsed) + "\n")
     out.write("{} failed".format(len(failures)) + "\n")
     out.write("{} successfully parsed".format(count) + "\n\n")
     out.write(str(failures) + "\n")
