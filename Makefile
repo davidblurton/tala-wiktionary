@@ -4,3 +4,7 @@ test:
 
 ipy:
 	pipenv run ipython -i ipy.py
+
+
+format:
+	pipenv run black **/*.py
