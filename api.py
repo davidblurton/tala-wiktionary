@@ -1,17 +1,18 @@
+import responder
+
 from flask import Flask
-from flask_cors import CORS
 
 from flask_graphql import GraphQLView
 from gql.schema import schema
 
+api = responder.API()
 app = Flask(__name__)
-CORS(app)
-
 
 app.add_url_rule(
     "/graphql", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
 )
 
+# api.add_route("/graphql", schema)
 
 @app.route("/")
 def hello_world():
@@ -19,4 +20,4 @@ def hello_world():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    api.run(port=5000)

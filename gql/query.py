@@ -36,7 +36,10 @@ class Query(graphene.ObjectType):
     )
     forms = graphene.List(types.Form, form=graphene.String())
     search = graphene.List(
-        SearchResult, query=graphene.String(), first=graphene.Int(default_value=100), unique_lemma=graphene.Boolean(default_value=False)
+        SearchResult,
+        query=graphene.String(),
+        first=graphene.Int(default_value=100),
+        unique_lemma=graphene.Boolean(default_value=False),
     )
     stats = graphene.Field(Stats)
     declension_group = graphene.List(KeyCount, group=graphene.String())
@@ -68,34 +71,32 @@ class Query(graphene.ObjectType):
         lemmas = Lemma.select().where(Lemma.name == query).limit(first)
         forms = Form.select().where(Form.name == query).limit(first)
         translations = (
-            Translation.select()
-            .where(Translation.meaning == query)
-            .limit(first)
+            Translation.select().where(Translation.meaning == query).limit(first)
         )
 
         results = list(lemmas) + list(forms) + list(translations)
 
         if unique_lemma:
-          unique_results = []
-          lemma_ids = set()
+            unique_results = []
+            lemma_ids = set()
 
-          for result in results:
-            if isinstance(result, Lemma):
-              id = result.id
+            for result in results:
+                if isinstance(result, Lemma):
+                    id = result.id
 
-              if id not in lemma_ids:
-                unique_results.append(result)
+                    if id not in lemma_ids:
+                        unique_results.append(result)
 
-              lemma_ids.add(id)
-            else:
-              id = result.lemma.id
+                    lemma_ids.add(id)
+                else:
+                    id = result.lemma.id
 
-              if id not in lemma_ids:
-                unique_results.append(result)
+                    if id not in lemma_ids:
+                        unique_results.append(result)
 
-              lemma_ids.add(id)
+                    lemma_ids.add(id)
 
-          return unique_results
+            return unique_results
 
         return results[:first]
 
