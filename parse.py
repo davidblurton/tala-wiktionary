@@ -10,31 +10,8 @@ d = Declensions(wikitionary)
 sqldb.drop_tables(MODELS)
 sqldb.create_tables(MODELS)
 
-parse_failures = [
-    "Mið-Afríkulýðveldið",
-    "mar",
-    "hræðsla",
-    "áreynsla",
-    "endurnýjanleg orka",
-    "Garðabær",
-    "tannkrem",
-    "matseðill",
-    "-leysi",
-    "eftirnafn",
-    "löggæsla",
-    "lungnablöðrur",
-    "fjendur",
-    "gammageislar",
-    "geimgeislar",
-    "-nætti",
-    "-gengill",
-    "rennandi vatn",
-    "ævilangur fangelsisdómur",
-    "lendingur",
-]
-temp_failures = []
+known_failures = ['Mið-Afríkulýðveldið', 'mar', 'endurnýjanleg orka', 'Garðabær']
 
-known_failures = parse_failures + temp_failures
 
 with open("failures.txt", "w") as out:
     failures = []

@@ -32,7 +32,7 @@ class Translation(BaseModel):
     lemma = ForeignKeyField(Lemma, backref="translations")
 
     def __repr__(self):
-        return "<Translation(lang=%s, meaning=%s)>" % (self.name, self.meaning)
+        return "<Translation(lang=%s, meaning=%s)>" % (self.lang, self.meaning)
 
 
 MODELS = [Lemma, Form, Translation]

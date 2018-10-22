@@ -25,7 +25,7 @@ def test_entry_part_of_speech():
 
 
 def test_entry_part_of_speech():
-    assert entry.part_of_speech == "kk"
+    assert entry.part_of_speech == "Karlkynsnafnorð"
 
 
 def test_entry_is_icelandic():

@@ -64,15 +64,21 @@ class Entry:
 
     @property
     def part_of_speech(self):
-        for index, template in enumerate(self.templates):
-            if template.name in NOUN_TEMPLATES:
-                return self.templates[index + 1].name.replace(".", "")
+        for template in self.templates:
+            if template.name.startswith(('Fallbeyging kk sb', 'Fallbeyging kk vb')):
+                return 'Karlkynsnafnorð'
+            if template.name.startswith(('Fallbeyging kvk sb', 'Fallbeyging kvk vb')):
+                return 'Kvenkynsnafnorð'
+            if template.name.startswith(('Fallbeyging hk sb', 'Fallbeyging hk vb')):
+                return 'Hvorugkynsnafnorð'
 
     @property
     def category(self):
         for template in self.templates:
             if template.name in NOUN_TEMPLATES:
                 return template.name.replace("-is-", "").replace("-", "")
+
+        return "" # XXX: Default category?
 
     @property
     def is_icelandic(self):
