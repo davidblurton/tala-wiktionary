@@ -19,6 +19,7 @@ body {
   height: 49px;
   margin: 0 auto;
   margin-bottom: 30px;
+  max-width: 100%;
 }
 
 .App-content {
