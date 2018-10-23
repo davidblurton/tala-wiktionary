@@ -1,0 +1,53 @@
+.root {
+  background-color: white;
+  padding: 60px 340px;
+  margin: 20px -340px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.lemmaName {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
+.partOfSpeech {
+  margin-bottom: 12px;
+}
+
+.translations {
+  margin-bottom: 26px;
+}
+
+.translation {
+  display: flex;
+}
+
+.definition {
+  width: 340px;
+  margin-left: -340px;
+  text-align: right;
+  padding-right: 20px;
+
+  color: #adadad;
+  font-variant: small-caps;
+}
+
+.forms {
+  display: flex;
+}
+
+.formGroup {
+  margin-right: 20px;
+  flex-basis: 340px;
+}
+
+.form {
+  font-size: 24px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.formMatch {
+  color: #0071bc;
+}

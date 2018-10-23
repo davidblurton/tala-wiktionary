@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+yarn run build
+
 docker build -t davidblurton/tala-graph-api:latest .
 docker push davidblurton/tala-graph-api:latest
 

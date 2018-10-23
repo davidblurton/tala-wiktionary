@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+}
+
+.App {
+  padding: 60px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+.App-logo {
+  width: 276px;
+  height: 49px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.App-content {
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

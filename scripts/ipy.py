@@ -10,7 +10,6 @@ page = db.get_by_title(word)
 entries = list(page.get_entries())
 
 for entry in entries:
-  print(entry.to_dict())
+    print(entry.to_dict())
 
 declensions = d.get_declensions(word)
-

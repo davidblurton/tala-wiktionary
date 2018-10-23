@@ -1,0 +1,15 @@
+.input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d2d2d2;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 1.5rem;
+  outline: 0;
+  padding-bottom: 5px;
+  transition: color 0.2s, border-color 0.2s;
+  width: 100%;
+  max-width: 600px;
+  color: #555;
+  margin-bottom: 0.5em;
+}

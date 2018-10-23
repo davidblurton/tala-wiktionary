@@ -3,8 +3,12 @@ test:
 
 
 ipy:
-	pipenv run ipython -i ipy.py
+	pipenv run ipython -i scripts/ipy.py
 
 
 format:
 	pipenv run black **/*.py
+
+
+populate:
+	pipenv run python populate.py
