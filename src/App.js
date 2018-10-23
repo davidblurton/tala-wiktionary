@@ -35,6 +35,7 @@ const SearchQuery = gql`
     __typename
     name
     partOfSpeech
+    declensionGroup
     forms {
       __typename
       name

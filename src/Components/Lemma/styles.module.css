@@ -15,6 +15,11 @@
   margin-bottom: 12px;
 }
 
+.declensionGroup {
+  color: #adadad;
+  margin-left: 12px;
+}
+
 .translations {
   margin-bottom: 26px;
 }
@@ -35,6 +40,7 @@
 
 .forms {
   display: flex;
+  margin-bottom: 20px;
 }
 
 .formGroup {
@@ -50,4 +56,31 @@
 
 .formMatch {
   color: #0071bc;
+}
+
+.toggle {
+  color: #adadad;
+  font-variant: small-caps;
+  user-select: none;
+  cursor: pointer;
+}
+
+.footer {
+  border-top: 1px solid #d2d2d2;
+  margin-top: 60px;
+  padding-top: 10px;
+}
+
+.footerLink {
+  color: #d2d2d2;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tableHeading {
+  font-size: 16px;
+  line-height: 24px;
+  color: #adadad;
+  font-variant: small-caps;
+  text-transform: lowercase;
 }
