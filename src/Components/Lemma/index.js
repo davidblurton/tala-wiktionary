@@ -14,6 +14,10 @@ import styles from "./styles.module.css";
 //   }
 // ];
 
+Array.prototype.flatMap = function(lambda) {
+  return Array.prototype.concat.apply([], this.map(lambda));
+};
+
 export default class Lemma extends React.PureComponent {
   state = {
     withArticle: false
@@ -24,6 +28,22 @@ export default class Lemma extends React.PureComponent {
       withArticle: !this.state.withArticle
     });
   };
+
+  componentDidMount() {
+    const { lemma, query } = this.props;
+
+    const forms = [1, 3]
+      .filter(i => i < lemma.forms.length)
+      .map(index => lemma.forms[index])
+      .flatMap(x => x)
+      .map(lemma => lemma.name);
+
+    if (forms.includes(query)) {
+      this.setState({
+        withArticle: true
+      });
+    }
+  }
 
   render() {
     const { lemma, query } = this.props;
