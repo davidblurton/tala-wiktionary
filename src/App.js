@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import createHistory from "history/createBrowserHistory";
 
 import "./App.css";
 import "typeface-roboto-slab";
@@ -8,6 +9,8 @@ import "typeface-roboto-slab";
 import Logo from "./Components/Logo";
 import Search from "./Components/Search";
 import Lemma from "./Components/Lemma";
+
+const history = createHistory();
 
 const SearchQuery = gql`
   query SearchQuery($query: String) {
@@ -50,14 +53,22 @@ const SearchQuery = gql`
 
 class App extends Component {
   state = {
-    searchValue: "hestur"
+    searchValue: history.location.pathname.slice(1)
   };
 
   handleSearch = event => {
-    this.setState({
-      searchValue: event.target.value
+    history.replace({
+      pathname: `/${event.target.value}`
     });
   };
+
+  componentDidMount() {
+    history.listen((location, action) => {
+      this.setState({
+        searchValue: location.pathname.slice(1)
+      });
+    });
+  }
 
   render() {
     const { searchValue } = this.state;
