@@ -37,6 +37,12 @@
             ],
             "version": "==1.0.0b3"
         },
+        "apistar": {
+            "hashes": [
+                "sha256:4338b24468b49526ceac4a8f84046056081ee747f373ca8d0647bd6b2344c895"
+            ],
+            "version": "==0.6.0"
+        },
         "asgiref": {
             "hashes": [
                 "sha256:9b05dcd41a6a89ca8c6e7f7e4089c3f3e76b5af60aebb81ae6d455ad81989c97",
@@ -247,11 +253,11 @@
         },
         "responder": {
             "hashes": [
-                "sha256:10716446fa77cc36c47017ec3d465695d94762feb69a7246082d1220e2c1b6af",
-                "sha256:47bcab9fe36d203e9248f7bcc2bae2fae6ae91e046992aa7945491c4a143e719"
+                "sha256:9e7b4ed222d3f38e3aea4a87ff813a59869683f0d294eb09f25946189b5b7847",
+                "sha256:c54e1d83a59d597f7bfca8fb2463664d3e07d2f7a2c8b5f055b41f52b21f55e7"
             ],
             "index": "pypi",
-            "version": "==0.2.0"
+            "version": "==0.3.1"
         },
         "rfc3986": {
             "hashes": [
@@ -341,6 +347,13 @@
                 "sha256:f1414e6cbcea8d22843e7eafdfdfae3dd1aba41d1945f6ca66e4806c07c4f454"
             ],
             "version": "==6.0"
+        },
+        "whitenoise": {
+            "hashes": [
+                "sha256:133a92ff0ab8fb9509f77d4f7d0de493eca19c6fea973f4195d4184f888f2e02",
+                "sha256:32b57d193478908a48acb66bf73e7a3c18679263e3e64bfebcfac1144a430039"
+            ],
+            "version": "==4.1"
         },
         "wikiexpand": {
             "hashes": [
@@ -515,11 +528,11 @@
         },
         "pytest": {
             "hashes": [
-                "sha256:10e59f84267370ab20cec9305bafe7505ba4d6b93ecbf66a1cce86193ed511d5",
-                "sha256:8c827e7d4816dfe13e9329c8226aef8e6e75d65b939bc74fda894143b6d1df59"
+                "sha256:212be78a6fa5352c392738a49b18f74ae9aeec1040f47c81cadbfd8d1233c310",
+                "sha256:6f6c1efc8d0ccc21f8f6c34d8330baca883cf109b66b3df954b0a117e5528fb4"
             ],
             "index": "pypi",
-            "version": "==3.9.1"
+            "version": "==3.9.2"
         },
         "simplegeneric": {
             "hashes": [
