@@ -1,8 +1,8 @@
 setup:
-		make download_dump
-		pipenv install
-		yarn install
-		make test
+	make download_dump
+	pipenv install
+	yarn install
+	make test
 
 
 download_dump:
@@ -11,7 +11,7 @@ download_dump:
 
 
 test:
-		pipenv run python -m pytest --pdb
+	pipenv run python -m pytest --pdb
 
 
 ipy:
