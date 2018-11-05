@@ -1,0 +1,128 @@
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "kind": "OBJECT",
+          "name": "Query",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Lemma",
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "String",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Form",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Grammar",
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "GrammarCase",
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "GrammarNumber",
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "GrammarArticle",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Translation",
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int",
+          "possibleTypes": null
+        },
+        {
+          "kind": "UNION",
+          "name": "SearchResult",
+          "possibleTypes": [
+            {
+              "name": "Lemma"
+            },
+            {
+              "name": "Form"
+            },
+            {
+              "name": "Translation"
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Stats",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "KeyCount",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__Schema",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__Type",
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "__TypeKind",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__Field",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__InputValue",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__EnumValue",
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__Directive",
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "__DirectiveLocation",
+          "possibleTypes": null
+        }
+      ]
+    }
+  }
+}
