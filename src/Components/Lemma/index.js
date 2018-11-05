@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import {groupBy} from 'lodash';
 
 // import Table from "../Table";
 //
@@ -49,6 +50,8 @@ export default class Lemma extends React.PureComponent {
     const { lemma, query } = this.props;
     const { withArticle } = this.state;
 
+    const translationsByLang = groupBy(lemma.translations, 'lang')
+
     return (
       <div className={styles.root}>
         <div className={styles.lemmaName}>{lemma.name}</div>
@@ -61,10 +64,10 @@ export default class Lemma extends React.PureComponent {
         </div>
 
         <div className={styles.translations}>
-          {lemma.translations.map(translation => (
+          {Object.keys(translationsByLang).map(lang => (
             <div className={styles.translation}>
-              <div className={styles.definition}>{translation.lang}</div>
-              <div>{translation.meaning}</div>
+              <div className={styles.definition}>{lang}</div>
+              <div>{translationsByLang[lang].map(translation => translation.meaning).join(', ')}</div>
             </div>
           ))}
         </div>
