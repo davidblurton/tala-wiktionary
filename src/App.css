@@ -5,12 +5,13 @@
 }
 
 body {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #f4f4f4;
   font-family: "Roboto Slab", serif;
 }
 
 .App {
   padding: 60px;
-  background-color: #f4f4f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

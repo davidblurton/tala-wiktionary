@@ -9,6 +9,7 @@
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.5.2",
+    "react-fastclick": "^3.0.2",
     "typeface-roboto-slab": "^0.0.54"
   },
   "devDependencies": {

@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-
+import initReactFastclick from 'react-fastclick';
 import { ApolloProvider } from "react-apollo";
+
+import * as serviceWorker from "./serviceWorker";
 import client from "./client";
+import App from "./App";
+
+import "./index.css";
+
+initReactFastclick();
 
 const Index = () => (
   <ApolloProvider client={client}>
