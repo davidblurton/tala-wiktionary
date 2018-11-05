@@ -12,6 +12,8 @@ body {
   padding: 60px;
   background-color: #f4f4f4;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -26,7 +28,22 @@ body {
   max-width: 340px;
   width: 100%;
   margin: 0 auto;
+  flex: 1;
 }
+
+.App-footer {
+  margin: 20px 0;
+  color: rgba(77,77,77,.5);
+  text-align: center;
+  font-size: 12px;
+}
+
+.App-footer a {
+  color: rgba(77,77,77,.5);
+  border-bottom: 1px dotted #d2d2d2;
+  text-decoration: none;
+}
+
 
 .App-link {
   color: #61dafb;

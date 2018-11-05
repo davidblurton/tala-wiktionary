@@ -118,6 +118,13 @@ class App extends Component {
             }}
           </Query>
         </div>
+
+        <div className="App-footer">
+          <div className="App-source">
+            <p>Gögnin frá <a href="https://is.wiktionary.org/wiki/Wikior%C3%B0ab%C3%B3k:Fors%C3%AD%C3%B0a">Wikiorðabókinni</a>.</p>
+            <p><a href="https://tala.is">tala.islensku</a> er verkefni eftir <a href="http://davidblurton.com">David Blurton</a>.</p>
+          </div>
+        </div>
       </div>
     );
   }
