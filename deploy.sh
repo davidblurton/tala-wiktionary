@@ -16,5 +16,3 @@ docker push $TAG_LATEST
 eval $(docker-machine env tala)
 docker service update --update-failure-action rollback --image $TAG tala_graphql
 docker service ps tala_graphql
-
-# scp -i ~/.ssh/digitalocean stack.yml root@pianogr.am:~/tala2.yml
