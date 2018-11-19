@@ -12,6 +12,7 @@ class Lemma(BaseModel):
     part_of_speech = TextField()
     category = TextField()
     declension_group = TextField()
+    frequency = IntegerField(default=0)
 
     def __repr__(self):
         return "<Lemma(name=%s)>" % (self.name)

@@ -2,9 +2,11 @@ import click
 
 from database import db as sqldb
 from wiktionary import Wiktionary, Declensions
+from frequencies import Frequencies
 from models import Form, Lemma, Translation, MODELS
 
 wikitionary = Wiktionary("articles.xml")
+frequencies = Frequencies("frequency.csv")
 d = Declensions(wikitionary)
 
 sqldb.drop_tables(MODELS)
@@ -31,7 +33,7 @@ with open("failures.txt", "w") as out:
                         # TODO: Don't yield entries we don't understand
                         continue
 
-                    lemma = Lemma.create(**entry.to_dict())
+                    lemma = Lemma.create(**entry.to_dict(), frequency=frequencies.get(entry.name) or 0)
                     translations = [
                         Translation(**translation, lemma=lemma)
                         for translation in entry.translations

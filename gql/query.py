@@ -40,9 +40,10 @@ class Query(graphene.ObjectType):
         query=graphene.String(),
         first=graphene.Int(default_value=100),
         unique_lemma=graphene.Boolean(default_value=False),
+        lang=graphene.String(default_value="en")
     )
     stats = graphene.Field(Stats)
-    declension_group = graphene.List(KeyCount, group=graphene.String())
+    declension_groups = graphene.List(KeyCount, group=graphene.String())
 
     def resolve_declension_group(self, info, group):
         query = (
@@ -61,17 +62,23 @@ class Query(graphene.ObjectType):
 
     def resolve_lemmas(self, info, group, first):
         return (
-            Lemma.select().where(Lemma.declension_group.startswith(group)).limit(first)
+            Lemma.select()
+            .where(Lemma.declension_group.startswith(group))
+            .order_by(Lemma.frequency.desc())
+            .limit(first)
         )
 
     def resolve_forms(self, info, form):
         return Form.select().where(Form.name == form)
 
-    def resolve_search(self, info, query, first, unique_lemma):
+    def resolve_search(self, info, query, first, unique_lemma, lang):
         lemmas = Lemma.select().where(Lemma.name == query).limit(first)
         forms = Form.select().where(Form.name == query).limit(first)
         translations = (
-            Translation.select().where(Translation.meaning == query).limit(first)
+            Translation.select()
+            .where(Translation.meaning == query)
+            .where(Translation.lang == lang)
+            .limit(first)
         )
 
         results = list(lemmas) + list(forms) + list(translations)
